@@ -7,6 +7,7 @@ package interpreter;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -18,21 +19,27 @@ public class Interpreter {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        String roman = "MCMXXVIII";
-        Context context = new Context(roman);
+        String roman = JOptionPane.showInputDialog("Digite um número romano!");
 
-        // Build the 'parse tree'
-        List<Expression> trees = new ArrayList<>();
-        trees.add(new ThousandExpression());
-        trees.add(new HundredExpression());
-        trees.add(new TenExpression());
-        trees.add(new OneExpression());
+        if (roman == null || roman.equals("")) {
+            JOptionPane.showMessageDialog(null, "Você não digitou nada.");
+        } else {
 
-        trees.forEach((tree) -> {
-            tree.Interpret(context);
-        });
+            Context context = new Context(roman);
 
-        System.out.println(context.getOutput());
+            // Build the 'parse tree'
+            List<Expression> trees = new ArrayList<>();
+
+            trees.add(new ThousandExpression());
+            trees.add(new HundredExpression());
+            trees.add(new TenExpression());
+            trees.add(new OneExpression());
+
+            trees.forEach((tree) -> {
+                tree.Interpret(context);
+            });
+
+            JOptionPane.showMessageDialog(null, context.getOutput());
+        }
     }
-
 }
