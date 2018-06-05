@@ -11,8 +11,8 @@ package interpreter;
  */
 public class Context {
 
-    public String input;
-    public String output;
+    public String input = "";
+    public String output = "";
 
     public Context(String input) {
         this.input = input;

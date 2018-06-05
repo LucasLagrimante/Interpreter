@@ -38,7 +38,9 @@ public class Interpreter {
             trees.forEach((tree) -> {
                 tree.Interpret(context);
             });
-
+            
+            System.err.println(context.getOutput());
+            
             JOptionPane.showMessageDialog(null, context.getOutput());
         }
     }

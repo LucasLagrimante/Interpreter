@@ -7,6 +7,9 @@
 /**
  * Solarized colors by Ethan Schoonover
  */
+.fontSize {
+    font-size: 60% !important; }
+
 html * {
   color-profile: sRGB;
   rendering-intent: auto; }
