@@ -12,7 +12,7 @@ package interpreter;
 public class Context {
 
     public String input = "";
-    public String output = "";
+    public int output = 0;
 
     public Context(String input) {
         this.input = input;
@@ -26,11 +26,11 @@ public class Context {
         this.input = input;
     }
 
-    public String getOutput() {
+    public int getOutput() {
         return output;
     }
 
-    public void setOutput(String output) {
+    public void setOutput(int output) {
         this.output = output;
     }
 
